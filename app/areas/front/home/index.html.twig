@@ -1,0 +1,311 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}صفحه اصلی{% endblock %}
+{% block header %}
+    <link rel="stylesheet" href="{{ auto_site_base_url }}/assets/css/FrontPage.css">
+{% endblock %}
+{% block main %}
+    {#Header Image#}
+    <div class="page-header clear-filter" filter-color="grey">
+        <div class="page-header-image" data-parallax="true" style="background-image: url('{{ generateImageAbsoluteUrl(header[0].filename) }}');
+    /*transform: translate3d(0px, 1674px, 0px);*/">
+        </div>
+        <div class="container">
+            <div class="content-center brand">
+                <img class="n-logo" src="{{ generateImageAbsoluteUrl(header[1].filename) }}" alt="Irianoweb">
+                <h1 class="h1-seo">{{ header[0].title }}</h1>
+                <h3>{{ header[0].content }}</h3>
+            </div>
+        </div>
+    </div>
+    {#End Header Image#}
+
+    {#Hexagon#}
+    <link href='https://fonts.googleapis.com/css?family=Oswald:400,700,300' rel='stylesheet' type='text/css'>
+    <section class="intro rtl">
+        <div class="intro-block">
+            <div class="centerfold-wrap">
+                <div class="hex-master-wrap">
+                    <div class="grid-1">
+                        <div class="hex-wrap backend" data-title="{{ hexagon[2].title }}" data-content="backend-desc" data-color="#333333">
+                            <div class="hex-init"></div>
+                            <div class="hex-borders">
+                                <div class="border-1"></div>
+                                <div class="border-2"></div>
+                                <div class="border-3"></div>
+                            </div>
+                            <div class="label"><img src="{{ generateImageAbsoluteUrl(hexagon[3].filename) }}"/></div>
+                            <div class="hexagon">
+                                <div class="hex-inner-1">
+                                    <div class="hex-inner-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hex-wrap frontend" data-title="{{ hexagon[0].title }}" data-content="frontend-desc"
+                             data-color="#16A085" id="frontend">
+                            <div class="hex-init"></div>
+                            <div class="hex-borders">
+                                <div class="border-1"></div>
+                                <div class="border-2"></div>
+                                <div class="border-3"></div>
+                            </div>
+                            <div class="label"><img src="{{ generateImageAbsoluteUrl(hexagon[1].filename) }}"/></div>
+                            <div class="hexagon">
+                                <div class="hex-inner-1">
+                                    <div class="hex-inner-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-2">
+                        <div class="hex-wrap html" data-title="{{ hexagon[8].title }}" data-content="html-desc" data-color="#E34C26">
+                            <div class="hex-init"></div>
+                            <div class="hex-borders">
+                                <div class="border-1"></div>
+                                <div class="border-2"></div>
+                                <div class="border-3"></div>
+                            </div>
+                            <div class="label"><img src="{{ generateImageAbsoluteUrl(hexagon[9].filename) }}"/></div>
+                            <div class="hexagon">
+                                <div class="hex-inner-1">
+                                    <div class="hex-inner-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hex-wrap css" data-title="{{ hexagon[6].title }}" data-content="css-desc" data-color="#0083de">
+                            <div class="hex-init"></div>
+                            <div class="hex-borders">
+                                <div class="border-1"></div>
+                                <div class="border-2"></div>
+                                <div class="border-3"></div>
+                            </div>
+                            <div class="label"><img src="{{ generateImageAbsoluteUrl(hexagon[7].filename) }}"/></div>
+                            <div class="hexagon">
+                                <div class="hex-inner-1">
+                                    <div class="hex-inner-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hex-wrap jquery" data-title="{{ hexagon[4].title }}" data-content="javascript-desc" data-color="#8cc84b">
+                            <div class="hex-init"></div>
+                            <div class="hex-borders">
+                                <div class="border-1"></div>
+                                <div class="border-2"></div>
+                                <div class="border-3"></div>
+                            </div>
+                            <div class="label"><img src="{{ generateImageAbsoluteUrl(hexagon[5].filename) }}"/></div>
+                            <div class="hexagon">
+                                <div class="hex-inner-1">
+                                    <div class="hex-inner-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-3">
+                        <div class="hex-wrap gui" data-title="{{ hexagon[12].title }}" data-content="gui-desc" data-color="#2C3E52">
+                            <div class="hex-init"></div>
+                            <div class="hex-borders">
+                                <div class="border-1"></div>
+                                <div class="border-2"></div>
+                                <div class="border-3"></div>
+                            </div>
+                            <div class="label"><img src="{{ generateImageAbsoluteUrl(hexagon[13].filename) }}"/></div>
+                            <div class="hexagon">
+                                <div class="hex-inner-1">
+                                    <div class="hex-inner-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hex-wrap seo" data-title="{{ hexagon[10].title }}" data-content="seo-desc" data-color="#C0392B">
+                            <div class="hex-init"></div>
+                            <div class="hex-borders">
+                                <div class="border-1"></div>
+                                <div class="border-2"></div>
+                                <div class="border-3"></div>
+                            </div>
+                            <div class="label"><img src="{{ generateImageAbsoluteUrl(hexagon[11].filename) }}"/></div>
+                            <div class="hexagon">
+                                <div class="hex-inner-1">
+                                    <div class="hex-inner-2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-display">
+                    <div class="code-description">
+                        <div class="backend-desc">
+                            <p class="code-title"></p>
+                            <p>{{ hexagon[2].content }}</p>
+                            <div class="code-icon"></div>
+                        </div>
+                        <div class="frontend-desc">
+                            <p class="code-title"></p>
+                            <p>{{ hexagon[0].content }}</p>
+                            <div class="code-icon"></div>
+                        </div>
+                        <div class="html-desc">
+                            <p class="code-title"></p>
+                            <p>{{ hexagon[8].content }}</p>
+                            <div class="code-icon"></div>
+                        </div>
+                        <div class="css-desc">
+                            <p class="code-title"></p>
+                            <p>{{ hexagon[6].content }}</p>
+                            <div class="code-icon"></div>
+                        </div>
+                        <div class="javascript-desc">
+                            <p class="code-title"></p>
+                            <p>{{ hexagon[4].content }}</p>
+                            <div class="code-icon"></div>
+                        </div>
+                        <div class="gui-desc">
+                            <p class="code-title"></p>
+                            <p>{{ hexagon[12].content }}</p>
+                            <div class="code-icon"></div>
+                        </div>
+                        <div class="seo-desc">
+                            <p class="code-title"></p>
+                            <p>{{ hexagon[10].content }}</p>
+                            <div class="code-icon"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hoverblock"></div>
+            </div> <!-- End Centerfold-Wrap -->
+        </div>
+    </section>
+    {#End Hexagon#}
+
+    {#Portfolios#}
+    <div class="wrap rtl" id="portfolios">
+        <div class="tile wow zoomIn">
+            <img src='{{ generateImageAbsoluteUrl(services[0].filename) }}'/>
+            <div class="text">
+                <h1 class="text-center">{{ services[0].title }}</h1>
+                <h2 class="animate-text text-center">{{ services[1].title }}</h2>
+                <p class="animate-text">{{ services[0].content }}</p>
+            </div>
+        </div>
+
+
+        <div class="tile wow zoomIn">
+            <img src='{{ generateImageAbsoluteUrl(services[2].filename) }}'/>
+            <div class="text">
+                <h1 class="text-center">{{ services[2].title }}</h1>
+                <h2 class="animate-text text-center">{{ services[3].title }}</h2>
+                <p class="animate-text">{{ services[2].content }}</p>
+            </div>
+        </div>
+
+        <div class="tile wow zoomIn">
+            <img src='{{ generateImageAbsoluteUrl(services[4].filename) }}'/>
+            <div class="text">
+                <h1 class="text-center">{{ services[4].title }}</h1>
+                <h2 class="animate-text text-center">{{ services[5].title }}</h2>
+                <p class="animate-text">{{ services[4].content }}</p>
+            </div>
+        </div>
+    </div>
+    {#End Portfolios#}
+
+    {#Services#}
+    <div class="container-fluid rtl wow fadeIn" id="work-samples" style="animation-delay: 0.3s">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6" style="padding: 0;">
+                <!--<div class="section section-samples" style="background-image: url('./images/site/work-samples.jpg'); background-size:
+        cover;
+                background-position: center top; min-height: 700px;">
+                    <div class="container">
+                        <div class="row">
+
+                        </div>
+                    </div>
+                </div>-->
+                <img src="{{ generateImageAbsoluteUrl(description[0].filename) }}">
+            </div>
+            <div class="col-xs-12 col-sm-5 text-center" id="services">
+                <h1 class="text-center">{{ description[0].title }}</h1>
+                <p>{{ description[0].content }}</p>
+                <a href="{{ auto_site_base_url }}/portfolios" class="btn btn-primary btn-round">{{ description[1].title }}</a>
+            </div>
+        </div>
+    </div>
+    {#End Services#}
+
+    {#Contact#}
+    <div class="section section-signup" style="background-image: url('{{ generateImageAbsoluteUrl(contact[0].filename) }}'); background-size: cover;
+        background-position: center top; min-height: 700px;">
+        <div class="container">
+            <div class="row">
+                <div class="card card-signup wow bounceInUp" data-background-color="scarlet" style="animation-delay: 0.3s">
+                    <form class="form" method="" action="">
+                        <div class="header header-primary text-center">
+                            <h4 class="title title-up">تماس با ما</h4>
+                        </div>
+                        <div class="content ltr">
+                            <div class="input-group form-group-no-border">
+                                <span class="input-group-addon"><i class="now-ui-icons users_circle-08"></i></span>
+                                <input type="text" class="form-control rtl" placeholder="نام و نام خانوادگی...">
+                            </div>
+                            <div class="input-group form-group-no-border">
+                                <span class="input-group-addon"><i class="now-ui-icons ui-1_email-85"></i></span>
+                                <input type="text" class="form-control rtl" placeholder="ایمیل...">
+                            </div>
+                            <div class="input-group form-group-no-border">
+                                <span class="input-group-addon"><i class="now-ui-icons files_paper"></i></span>
+                                <textarea rows="4" placeholder="متن..." class="form-control rtl" style="border-radius: 0 30px 30px 0;"></textarea>
+                            </div>
+                            <!-- If you want to add a checkbox to this form, uncomment this code -->
+                            <!-- <div class="checkbox">
+                              <input id="checkboxSignup" type="checkbox">
+                                  <label for="checkboxSignup">
+                                  Unchecked
+                                  </label>
+                                </div> -->
+                        </div>
+                        <div class="footer text-center">
+                            <a href="#pablo" class="btn btn-neutral btn-round btn-lg">{{ contact[1].title }}</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#End Contact#}
+
+
+{% endblock %}
+{% block bottom_scripts %}
+    <script src="{{ auto_site_base_url }}/assets/js/velocity.min.js" type="text/javascript"></script>
+    <script src="{{ auto_site_base_url }}/assets/js/velocity.ui.js"></script>
+    <script src="{{ auto_site_base_url }}/assets/js/hexagon.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $(".frontend").addClass("hexactive");
+            var width = $(window).width();
+            var margin = (width / 2) - 332;
+            $(".hex-master-wrap").css("margin-right",margin + "px");
+            $(".hex-master-wrap").on("mouseover", function () {
+                if (width > 768) {
+                    $(".hex-master-wrap").css("margin-right",0);
+                }
+            })
+        })
+    </script>
+    <script>
+        var width = $(window).width();
+        var margin = width / 10;
+        $("#services").css("margin-top",margin+"px");
+        var time = 0;
+        $(".tile:nth-child(1)").css("animation-delay",time + "s");
+        time += 0.2;
+        $(".tile:nth-child(2)").css("animation-delay",time + "s");
+        time += 0.2;
+        $(".tile:nth-child(3)").css("animation-delay",time + "s");
+    </script>
+    <script>
+        $("#home").addClass("active");
+    </script>
+{% endblock %}

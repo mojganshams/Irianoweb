@@ -1,0 +1,664 @@
+{% extends "layout.html.twig" %}
+
+{% block prehead %}
+    <link rel="stylesheet" type="text/css" href="{{ auto_site_base_url }}/assets/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="{{ auto_site_base_url }}/assets/css/demo.css">
+    <link rel="stylesheet" type="text/css" href="{{ auto_site_base_url }}/assets/css/component.css">
+    <script type="text/javascript" async="" src="https://ssl.google-analytics.com/ga.js"></script>
+    <script src="{{ auto_site_base_url }}/assets/js/modernizr.custom.js"></script>
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-7243260-2']);
+        _gaq.push(['_trackPageview']);
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
+{% endblock %}
+
+{% block title %}نمونه کار ها{% endblock %}
+{% block head %}
+
+    <style>
+        .navbar.navbar-transparent {
+            background-color: rgba(0, 0, 0, 0.30) !important;
+        }
+        .navbar .navbar-nav .nav-link:hover,
+        .navbar .navbar-nav .nav-link:focus {
+            color: white !important;
+        }
+        * {
+            font-family: IRANSans;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <main>
+
+        <header class="codrops-header">
+            <br>
+            <h1 class="float-left" style="margin-top: 50px">{{ titles[0].content }}</h1>
+        </header>
+        <section class="section section--intro">
+            <div class="isolayer isolayer--deco1 isolayer--shadow" style="transform-style: preserve-3d; transform: translateX(33vw) translateY(-340px) rotateX(45deg) rotateZ(45deg);">
+                <ul class="grid grid--loaded" style="position: relative; width: 1200px; height: 2100px;">
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[0].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[1].filename) }}" alt="02" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 0px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[2].filename) }}" alt="03"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 300px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[3].filename) }}" alt="04" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 300px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[4].filename) }}" alt="05" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 450px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[5].filename) }}" alt="06" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 600px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[6].filename) }}" alt="07" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 600px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[7].filename) }}" alt="08" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 750px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[8].filename) }}" alt="09" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 900px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[9].filename) }}" alt="10" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 900px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[0].filename) }}" alt="01"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 1050px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[1].filename) }}" alt="02" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1200px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[2].filename) }}" alt="03" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 1200px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[3].filename) }}" alt="04"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 1350px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[4].filename) }}" alt="05" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1500px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[5].filename) }}" alt="06"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 1500px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[6].filename) }}" alt="07"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 1650px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[7].filename) }}" alt="08"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1800px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[8].filename) }}" alt="09"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 1800px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(websites[9].filename) }}" alt="10"></a>
+                    </li>
+                </ul>
+            </div>
+        </section><!--/intro-->
+        <section class="interval">
+            <p class="interval__text
+        text-center">{{ intervals[0].content }}</p>
+        </section>
+        <section class="section section--right section--portraits">
+            <h2 class="section__heading">{{ titles[1].content }}</h2>
+            <div class="isolayer isolayer--deco2" style="transform-style: preserve-3d; transform: perspective(3000px) translateY(-150px) rotateX(55deg) rotateZ(-45deg);">
+                <ul class="grid grid--loaded" style="position: relative; width: 1200px; height: 2446.69px;">
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 0px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 0px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[7].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[4].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 900px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 264px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[4].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[7].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[4].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 264px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[8].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 900px; top: 264px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[6].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[6].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 413px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[7].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[7].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 528px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[8].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 900px; top: 528px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[4].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 677px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 793px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[7].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[4].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 826px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 942px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 900px; top: 942px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[7].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[4].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 1091px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[8].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1206px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[6].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[6].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 1206px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[7].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 1355px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[8].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[8].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 900px; top: 1355px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[4].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1471px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[6].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[6].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 1620px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[7].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 1620px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[8].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[8].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1735px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[4].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 900px; top: 1768px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[6].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[2].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[6].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 1884px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[7].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 2033px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[8].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[5].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[3].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[0].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[8].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 900px; top: 2033px;">
+                        <a class="grid__link" href="#">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[4].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[1].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[10].filename) }}" alt="01">
+                            <img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(posters[9].filename) }}" alt="01">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section><!--/portraits-->
+        <section class="interval">
+            <p class="interval__text text-center">{{ intervals[1].content }}
+        </section>
+        <section class="section section--cards">
+            <h2 class="section__heading float-left">{{ titles[2].content }}</h2>
+            <div class="isolayer isolayer--deco3" style="transform-style: preserve-3d; transform: translateX(40vw) translateY(100px) rotateX(15deg) rotateY(0deg) rotateZ(40deg);">
+                <ul class="grid grid--loaded" style="position: relative; width: 960px; height: 1280px;">
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[0].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[1].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[2].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 240px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[3].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[4].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[5].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 480px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[6].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[7].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[8].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 720px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[9].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[10].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[11].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 240px; top: 160px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[12].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[13].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[14].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 720px; top: 160px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[15].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[16].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[17].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 320px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[18].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[19].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[20].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 480px; top: 320px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[21].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[22].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[23].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 240px; top: 480px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[24].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[25].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[26].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 720px; top: 480px;">
+                        <a class="grid__link" href="#">
+                            <div class="layer"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[27].filename) }}"></div>
+                            <div class="layer"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[28].filename) }}"></div>
+                            <div class="layer"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[29].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 640px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[30].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[31].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[32].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 480px; top: 640px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[33].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[34].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[35].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 240px; top: 800px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[36].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[37].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[38].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 720px; top: 800px;">
+                        <a class="grid__link" href="#">
+                            <div class="layer"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[39].filename) }}"></div>
+                            <div class="layer"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[40].filename) }}"></div>
+                            <div class="layer"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[41].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 960px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[42].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[43].filename) }}"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[44].filename) }}"></div>
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 480px; top: 960px;">
+                        <a class="grid__link" href="#">
+                            <div class="layer"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[45].filename) }}"></div>
+                            <div class="layer"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[46].filename) }}"></div>
+                            <div class="layer"><img src="{{ generatePortfolioAbsoluteUrl(catalogs[47].filename) }}"></div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="interval">
+            <p class="interval__text text-center">{{ intervals[2].content }}</p>
+        </section>
+        <section class="section section--shots section--right">
+            <h2 class="section__heading">{{ titles[3].content }}</h2>
+            <div class="isolayer isolayer--deco4" style="transform-style: preserve-3d; transform: perspective(3000px) translate3d(-200px, -200px, 0px) scale3d(0.8, 0.8, 1) rotateY(45deg) rotateZ(-10deg);">
+                <ul class="grid grid--loaded" style="position: relative; width: 900px; height: 1575px;">
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 0px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[0].filename) }}" alt="01">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[1].filename) }}" alt="02" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[2].filename) }}" alt="03" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 225px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[3].filename) }}" alt="04"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 225px; z-index: 1;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[4].filename) }}" alt="05" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 225px; z-index: 1;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[5].filename) }}" alt="06" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 450px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[6].filename) }}" alt="07"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 450px; z-index: 1;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[7].filename) }}" alt="08" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 450px; z-index: 1;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[8].filename) }}" alt="09" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 675px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[9].filename) }}" alt="10"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 675px; z-index: 1;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[0].filename) }}" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 675px; z-index: 1;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[1].filename) }}" alt="02" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 900px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[2].filename) }}" alt="03"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 900px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[3].filename) }}" alt="04"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 900px; z-index: 1;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[4].filename) }}" alt="05" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1125px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[5].filename) }}" alt="06"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 1125px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[6].filename) }}" alt="07"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 600px; top: 1125px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[7].filename) }}" alt="08"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1350px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[8].filename) }}" alt="09"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 300px; top: 1350px;">
+                        <a class="grid__link" href="https://dribbble.com/fuviz"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="{{ generatePortfolioAbsoluteUrl(banners[9].filename) }}" alt="10"></a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <!-- Related demos -->
+    </main>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script src="{{ auto_site_base_url }}/assets/js/imagesloaded.pkgd.min.js"></script>
+    <script src="{{ auto_site_base_url }}/assets/js/masonry.pkgd.min.js"></script>
+    <script src="{{ auto_site_base_url }}/assets/js/dynamics.min.js"></script>
+    <script src="{{ auto_site_base_url }}/assets/js/classie.js"></script>
+    <script src="{{ auto_site_base_url }}/assets/js/main.js"></script>
+    <script src="{{ auto_site_base_url }}/assets/js/modernizr.custom.js"></script>
+    <script>
+        (function() {
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            new IsoGrid(document.querySelector('.isolayer--deco1'), {
+                transform : 'translateX(33vw) translateY(-340px) rotateX(45deg) rotateZ(45deg)',
+                stackItemsAnimation : {
+                    properties : function(pos) {
+                        return {
+                            translateZ: (pos+1) * 30,
+                            rotateZ: getRandomInt(-4, 4)
+                        };
+                    },
+                    options : function(pos, itemstotal) {
+                        return {
+                            type: dynamics.bezier,
+                            duration: 500,
+                            points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}],
+                            delay: (itemstotal-pos-1)*40
+                        };
+                    }
+                }
+            });
+
+            new IsoGrid(document.querySelector('.isolayer--deco2'), {
+                perspective: 3000,
+                transform : 'translateY(-150px) rotateX(55deg) rotateZ(-45deg)',
+                stackItemsAnimation : {
+                    properties : function(pos) {
+                        return {
+                            translateX: getRandomInt(-60, 60),
+                            translateY: getRandomInt(-60, 60),
+                            rotateZ: getRandomInt(-10, 10)
+                        };
+                    },
+                    options : function(pos, itemstotal) {
+                        return {
+                            type: dynamics.bezier,
+                            duration: 800,
+                            points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}],
+                            delay: (itemstotal-pos-1)*20
+                        };
+                    }
+                }
+            });
+
+            new IsoGrid(document.querySelector('.isolayer--deco3'), {
+                transform : 'translateX(40vw) translateY(100px) rotateX(15deg) rotateY(0) rotateZ(40deg)',
+                stackItemsAnimation : {
+                    properties : function(pos) {
+                        return {
+                            rotateY: pos * -15
+                        };
+                    },
+                    options : function(pos, itemstotal) {
+                        return {
+                            type: dynamics.bezier,
+                            duration: 500,
+                            points: [{"x":0,"y":0,"cp":[{"x":0.2,"y":1}]},{"x":1,"y":1,"cp":[{"x":0.3,"y":1}]}],
+                            delay: (itemstotal-pos-1)*40
+                        };
+                    }
+                }
+            });
+
+            new IsoGrid(document.querySelector('.isolayer--deco4'), {
+                perspective: 3000,
+                transform : 'translate3d(-200px,-200px,0) scale3d(0.8,0.8,1) rotateY(45deg) rotateZ(-10deg)',
+                stackItemsAnimation : {
+                    properties : function(pos) {
+                        return {
+                            rotateX: (pos+1) * -15
+                        };
+                    },
+                    options : function(pos, itemstotal) {
+                        return {
+                            type: dynamics.spring,
+                            delay: (itemstotal-pos-1)*30
+                        };
+                    }
+                },
+                onGridLoaded : function() {
+                    classie.add(document.body, 'grid-loaded');
+                }
+            });
+        })();
+    </script>
+    <script>
+        $("#samples").addClass("active");
+        $("body").addClass("portfolios").addClass("demo-2 grid-loaded")
+        $("html").addClass("js cssanimations");
+    </script>
+{% endblock %}

@@ -1,0 +1,5 @@
+Make the description meta tag dynamic
+Make the keywords meta tag dynamic
+
+
+*** Before uploading, change the header location in index.php to $_SERVER["DOCUMENT_ROOT"] . "websites/index.php". *** 

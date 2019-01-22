@@ -1,0 +1,26 @@
+{
+    "name": "vsg24/no-mvc",
+    "version": "0.3.8",
+    "description": "A PHP framework for non believers",
+    "keywords": ["framework", "php7", "no-mvc", "old-school", "fast", "standard", "routing", "lightweight"],
+    "homepage": "https://vsg24.github.io/NO-MVC/",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Vahid Amiri Motlagh",
+            "email": "vahid.a1996@gmail.com",
+            "homepage": "http://atvsg.com/"
+        }
+    ],
+    "require": {
+        "php": ">=7.0.0",
+        "altorouter/altorouter": "^1.2",
+        "twig/twig": "^1.24",
+        "aura/sql": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "NOMVC\\":"framework/"
+        }
+    }
+}

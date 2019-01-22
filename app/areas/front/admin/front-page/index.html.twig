@@ -1,0 +1,201 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}تنظیمات صفحه اصلی{% endblock %}
+{% block main %}
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+        {% if get.submit_success == 'true' %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-success" role="alert">
+                        <div class="container">
+                            محتویات با موفقیت افزوده شد.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if session.admin != 1 or get.content_insertion == 'false' %}
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/header.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/home/header">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Header</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/hexagon.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/home/hexagon">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Hexagon</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/services.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/home/services">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Services</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/description.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/home/description">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Description</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/contact.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/home/contact">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Contact Us</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/blog-header.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/blog/header">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Blog</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/about-us.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/about/about">
+                    <div class="layer">
+                        <h1 class="text-center text-white">About</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/websites.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/portfolios/websites">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Websites</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/posters.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/portfolios/posters">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Posters</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/catalogs.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/portfolios/catalogs">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Catalogs</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/banners.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/portfolios/banners">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Banners</h1>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-12 frontpage-section animated flipInX" style="background: url('{{ auto_site_base_url }}/img/front-page/intervals.jpg');">
+                <a href="{{ auto_site_base_url }}/admin/front-page/list/portfolios/intervals">
+                    <div class="layer">
+                        <h1 class="text-center text-white">Intervals</h1>
+                    </div>
+                </a>
+            </div>
+        {% elseif session.admin == 1 %}
+            {% if get.portfolios == 'true' %}
+                <h2 class="text-center text-white">مدیریت نمونه کارها</h2>
+            {% else %}
+                <h2 class="text-center text-white">مدیریت بخش های اصلی سایت</h2>
+            {% endif %}
+            <form method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-9">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="form-group form-group-no-border">
+                                    <label for="page">صفحه: </label>
+                                    <input type="text" name="page" value="" id="page" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group form-group-no-border">
+                                    <label for="section">بخش: </label>
+                                    <input type="text" name="section" value="" id="section" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group form-group-no-border">
+                                    <label for="title">عنوان: </label>
+                                    <input type="text" name="title" value="" id="title" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group form-group-no-border">
+                                    <label for="content">متن: </label>
+                                    <textarea class="form-control" id="content" rows="10" name="content"></textarea>
+                                </div>
+                                <input type="submit" name="submit" value="ثبت" class="btn btn-primary btn-round">
+                                {% if get.portfolios == 'true' %}
+                                    <a href="{{ auto_site_base_url }}/admin/front-page" class="btn btn-primary btn-round">بخش های اصلی سایت</a>
+                                {% else %}
+                                    <a href="{{ auto_site_base_url }}/admin/front-page?portfolios=true" class="btn btn-primary btn-round">نمونه کار ها</a>
+                                {% endif %}
+                                <a href="{{ auto_site_base_url }}/admin/front-page?content_insertion=false" class="btn btn-primary btn-round">محتوای سایت</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <div class="form-group form-group-no-border">
+                            <label for="filename">نام فایل: </label>
+                            <input type="text" name="filename" value="" id="filename" class="form-control">
+                        </div>
+                        <br><br>
+                        <div class="fileinput-new img-raised">
+                            <img src="{{ generateThumbnailAbsoluteUrl(post.filename) }}" alt="placeholder" id="placeholder">
+                        </div>
+                        <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+                        <br>
+                        <label for="fileupload" class="btn btn-primary btn-round center">
+                            <i class="fa fa-upload"></i>&nbsp;
+                            انتخاب فایل عکس
+                        </label>
+                        <input type="file" name="thumbnail" id="fileupload" onchange="readURL(this);" style="display: none">
+                    </div>
+                </div>
+            </form>
+
+        {% endif %}
+
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $('body').addClass('admin');
+    </script>
+    <script>
+        var time = 0;
+        $(".frontpage-section:nth-child(1)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(2)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(3)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(4)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(5)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(6)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(7)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(8)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(9)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(10)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(11)").css("animation-delay",time + "s");
+        time += 0.3;
+        $(".frontpage-section:nth-child(12)").css("animation-delay",time + "s");
+    </script>
+{% endblock %}

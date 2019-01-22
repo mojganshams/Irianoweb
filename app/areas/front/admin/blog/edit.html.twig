@@ -1,0 +1,137 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block main %}
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+        <h2 class="text-white">{{ post.title }}</h2>
+        {% if system_msg %}{{ system_msg }}{% endif %}
+        {% if get.submit_success == 'true' %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-success" role="alert">
+                        <div class="container">
+                            پست با موفقیت ثبت شد.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if get.edit_success == 'true' %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-success" role="alert">
+                        <div class="container">
+                            پست با موفقیت ویرایش شد.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <form method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="form-group form-group-no-border">
+                                <label for="posttitle">عنوان: </label>
+                                <input type="text" name="title" value="{{ post.title }}" id="posttitle" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="status">وضعیت:</label>
+                            <select required name="status" id="status" class="form-control rounded-control">
+                                <option value="" disabled selected>انتخاب کنید</option>
+                                <option {{ post.status == 'published' ? 'selected' : null }} value="published">منتشر شده</option>
+                                <option {{ post.status == 'draft' ? 'selected' : null }} value="draft">پیش نویس</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group form-group-no-border">
+                                <label for="postcontent">متن: </label>
+                                {#<label class="btn btn-primary" for="img-upload">img</label>
+                                <input type="file" name="img_upload" id="img-upload" onchange="insert_img(this);" style="display: none">#}
+                                <textarea class="form-control" id="postcontent" rows="10" name="content">{{ post.content }}</textarea>
+                            </div>
+                            <input type="submit" name="edit" value="ویرایش" class="btn btn-primary btn-round">
+                            <button type="submit" name="delete" class="btn btn-primary btn-round float-left" onclick="return confirm('آیا از حذف این پست اطمینان دارید؟')">
+                                <i class="fa fa-warning"></i>&nbsp;حذف پست
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="fileinput-new img-raised">
+                        <img src="{{ generateThumbnailAbsoluteUrl(post.filename) }}" alt="placeholder" id="placeholder">
+                    </div>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+                    <br>
+                    <label for="fileupload" class="btn btn-primary btn-round center">
+                        <i class="fa fa-upload"></i>&nbsp;
+                        انتخاب فایل عکس
+                    </label>
+                    <input type="file" name="thumbnail" id="fileupload" onchange="readURL(this);" style="display: none">
+                    {% if post.filename %}
+                        <button type="submit" name="remove_thumbnail" class="btn btn-primary btn-round center"><i class="fa fa-trash"></i>&nbsp; حذف تصویر</button>
+                    {% endif %}
+                    <div class="checkbox" style="margin-top: 20px;">
+                        <input type="checkbox" id="keep-latest-update-time" name="keep-latest-update-time" checked>
+                        <label for="keep-latest-update-time">عدم تغییر تاریخ آخرین ویرایش</label>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br>
+        {% if comments %}
+            <div class="row" id="comments">
+                <h2 class="text-white">دیدگاه ها</h2>
+                {% for comment in comments %}
+                    <a href="{{ auto_site_base_url }}/admin/comments/{{ comment.id }}" style="width: 100%" class="no-decoration">
+                        <div class="comment col-lg-12" style="margin-bottom: 2em;">
+                            <div class="author">
+                                <h6>{{ comment.author }} نوشته: </h6>
+                            </div>
+                            <div class="comment-body">
+                                {{ comment.body }}
+                            </div>
+                            <div class="meta-info" style="font-size: 0.8em;">
+                                <i class="fa fa-calendar"></i>
+                                {{ toRelativeDate(comment.created_at) }}
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $('body').addClass('admin');
+    </script>
+    <script type="text/javascript">
+        var tm_fonts = "IRANSans=IRANSans";
+        tinymce.init({
+            selector: 'textarea',
+            height: 500,
+            theme: 'modern',
+            language : 'fa_IR',
+            branding: false,
+            skin: 'charcoal',
+            plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor emoticons | fontselect fontsizeselect',
+            image_advtab: true,
+            templates: [
+                { title: 'Test template 1', content: 'Test 1' },
+                { title: 'Test template 2', content: 'Test 2' }
+            ],
+            font_formats: 'Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats; IRANSans=IRANSans'
+        });
+    </script>
+{% endblock %}

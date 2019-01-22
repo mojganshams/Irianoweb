@@ -1,0 +1,68 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}پست جدید{% endblock %}
+{% block main %}
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;" id="newpost">
+        <h2 class="text-white">افزودن پست جدید</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <div class="form-group form-group-no-border">
+                                <label for="posttitle">عنوان: </label>
+                                <input type="text" name="title" value="" id="posttitle" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="status">وضعیت:</label>
+                            <select name="status" id="status" class="form-control rounded-control">
+                                <option value="" disabled selected>انتخاب کنید</option>
+                                <option value="published">منتشر شده</option>
+                                <option value="draft">پیش نویس</option>
+                            </select>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group form-group-no-border">
+                                <label for="postcontent">متن: </label>
+                                <textarea class="form-control" id="postcontent" rows="10" name="content"></textarea>
+                            </div>
+                            <br>
+                            <small class="text-white">پس از ثبت اولیه به صفحه ویرایش پست ایجاد شده هدایت می شوید.</small><br><br>
+                            <input type="submit" name="edit" value="ثبت" class="btn btn-primary btn-round">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $('body').addClass('admin');
+    </script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: 'textarea',
+            height: 500,
+            theme: 'modern',
+            language : 'fa_IR',
+            branding: false,
+            skin: 'charcoal',
+            plugins: ['advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime media nonbreaking save table contextmenu directionality',
+                'emoticons template paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            toolbar2: 'print preview media | forecolor backcolor emoticons | fontselect fontsizeselect',
+            image_advtab: true,
+            templates: [
+                { title: 'Test template 1', content: 'Test 1' },
+                { title: 'Test template 2', content: 'Test 2' }
+            ],
+            font_formats: 'Andale Mono=andale mono,times;Arial=arial,helvetica,sans-serif;Arial Black=arial black,avant garde;Book Antiqua=book antiqua,palatino;Comic Sans MS=comic sans ms,sans-serif;Courier New=courier new,courier;Georgia=georgia,palatino;Helvetica=helvetica;Impact=impact,chicago;Symbol=symbol;Tahoma=tahoma,arial,helvetica,sans-serif;Terminal=terminal,monaco;Times New Roman=times new roman,times;Trebuchet MS=trebuchet ms,geneva;Verdana=verdana,geneva;Webdings=webdings;Wingdings=wingdings,zapf dingbats; IRANSans=IRANSans'
+        });
+    </script>
+{% endblock %}

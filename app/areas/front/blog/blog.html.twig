@@ -1,0 +1,106 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ blog.title }}{% endblock %}
+{% block header %}
+    <link rel="stylesheet" href="{{ auto_site_base_url }}/assets/css/Tiles.css">
+{% endblock %}
+{% block main %}
+    {#Header Image#}
+    <div class="page-header page-header-small">
+        <div class="page-header-image" data-parallax="true" style="background-image: url('{{ generateImageAbsoluteUrl(blog.filename) }}');">
+        </div>
+        <div class="container">
+            <div class="content-center">
+                <h1 class="title">{{ blog.title }}</h1>
+            </div>
+        </div>
+    </div>
+    {#End Header Image#}
+
+    {#Posts#}
+    <div class="wrapper section-product-description section-white-gradient section-scaled" data-no-turbolink>
+        <div class="container">
+            <div class="row">
+                {% for post in posts %}
+                    {#<div class="card rtl">
+                        <img class="card-img-top" src="{{ generateThumbnailAbsoluteUrl(post.filename) }}" alt="{{ post.title }}">
+                        <div class="card-block">
+                            <h4 class="card-title">{{ post.title }}</h4>
+                            <p class="card-text">{{ post.content }}</p>
+                            <a href="{{ auto_site_base_url }}/blog/{{ post.id }}/{{ post.title }}" class="btn btn-primary btn-round float-left">ادامه مطلب</a>
+                        </div>
+                    </div>#}
+                    <div class="col-lg-6 wow fadeInUp">
+                        <div class="grid">
+                            <figure class="effect-apollo">
+                                <img src="{{ generateThumbnailAbsoluteUrl(post.filename) }}" alt="{{ post.title }}">
+                                <figcaption>
+                                    <h2>{{ post.title }}</h2>
+                                    <p>ادامه مطلب</p>
+                                    <div class="meta-info" style="font-size: 0.8em;">
+                                        <i class="fa fa-calendar"></i>
+                                        {{ toRelativeDate(post.created_at) }}
+                                    </div>
+                                    <a href="{{ auto_site_base_url }}/blog/{{ post.id }}/{{ post.title }}">View more</a>
+                                </figcaption>
+                            </figure>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+        </div>
+    </div>
+    {#End Posts#}
+
+    {#Pagination#}
+    <div class="col-lg-12">
+        <div class="text-center">
+            <ul class="pagination d-inline-flex">
+                {% set page = get.page is defined ? get.page : 1 %}
+                {% if get.page is defined and get.page > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ generatePageUrl(server, get, 'first_page') }}" aria-label="Previous">
+                            <span aria-hidden="true"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ generatePageUrl(server, get, 'previous_page') }}" aria-label="Previous">
+                            <span aria-hidden="true"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ generatePageUrl(server, get, 'previous_page') }}">{{ convertNumbers(page - 1, true) }}</a>
+                    </li>
+                {% endif %}
+                <li class="page-item active">
+                    <a class="page-link" href="{{ generatePageUrl(server, get, null) }}">{{ convertNumbers(page, true) }}</a>
+                </li>
+                {% if posts|length >= 4 and page != total_pages %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ generatePageUrl(server, get, 'next_page') }}">{{ convertNumbers(page + 1, true) }}</a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ generatePageUrl(server, get, 'next_page') }}" aria-label="Next">
+                            <span aria-hidden="true"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="{{ auto_site_base_url }}/blog/?page={{ total_pages }}" aria-label="Next">
+                            <span aria-hidden="true"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <br>
+    {#End pagination#}
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $("#blog").addClass("active");
+        $("body").addClass("blog");
+    </script>
+{% endblock %}

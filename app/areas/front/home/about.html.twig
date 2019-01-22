@@ -1,0 +1,29 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}درباره ما{% endblock %}
+{% block header %}
+    <style>
+        footer {
+            background-color: transparent !important;
+            z-index: 5;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="page-header">
+        <div class="page-header-image" style="background-image:url({{ generateImageAbsoluteUrl(about.filename) }})"></div>
+        <div class="container">
+            <div class="col-md-12 content-center wow fadeIn">
+                <img src="{{ auto_site_base_url }}/img/logo-iriano.png" alt="Irianoweb">
+                <h4 class="text-center rtl text-white">{{ about.content }}</h4>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block bottom_scripts %}
+    <script>
+        $("body").addClass("about-page").removeClass("index-page");
+        $("#about").addClass("active");
+    </script>
+{% endblock %}

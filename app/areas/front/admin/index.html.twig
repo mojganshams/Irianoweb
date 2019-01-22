@@ -1,0 +1,80 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}پنل مدیریت{% endblock %}
+{% block header %}
+    <link rel="stylesheet" href="{{ auto_site_base_url }}/assets/css/Tiles.css">
+    <style>
+        .navbar.navbar-transparent {
+            background-color: #9f1e22 !important;
+            margin: 0;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <div id="dashboard">
+        <div class="container-fluid" style="margin-top: 72px">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="grid">
+                        <figure class="effect-ruby">
+                            <img src="img/header.jpg" alt="img13">
+                            <figcaption>
+                                <h2><span>صفحه اصلی</span></h2>
+                                <p>تغییر محتوای صفحه اصلی، نمونه کارها و درباره ما</p>
+                                <a href="{{ auto_site_base_url }}/admin/front-page">View more</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="grid">
+                        <figure class="effect-ruby">
+                            <img src="img/blog-header.jpg" alt="img14">
+                            <figcaption>
+                                <h2><span>وبلاگ</span></h2>
+                                <p>مدیریت پست ها و ارسال پست جدید</p>
+                                <a href="{{ auto_site_base_url }}/admin/blog">View more</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="grid">
+                        <figure class="effect-ruby">
+                            <img src="img/comments.jpg" alt="img13">
+                            <figcaption>
+                                <h2><span>دیدگاه ها</span></h2>
+                                <p>مشاهده کلیه دیدگاه ها</p>
+                                <a href="{{ auto_site_base_url }}/admin/comments">View more</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="grid">
+                        <figure class="effect-ruby">
+                            <img src="img/settings.jpg" alt="img14">
+                            <figcaption>
+                                <h2><span>تنظیمات حساب</span></h2>
+                                <p>مدیریت اطلاعات حساب کاربری</p>
+                                <a id="logout" href="{{ auto_site_base_url }}/admin/users">View more</a>
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        var height = $(window).height();
+        height-=145;
+        height/=2;
+        $('figure').css('min-height', height + 'px');
+    </script>
+    <script>
+        $('body').addClass('admin');
+    </script>
+{% endblock %}

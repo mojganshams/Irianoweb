@@ -1,0 +1,26 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}401 - امکان دسترسی به این صفحه برای شما وجود ندارد{% endblock %}
+{% block header %}
+    <style>
+        .navbar.navbar-transparent {
+            background-color: #9f1e22 !important;
+        }
+    </style>
+{% endblock %}
+{% block main %}
+    <div class="table-wrapper">
+        <div class="wrapper-inner">
+            <h1 class="text-center"><i class="warning sign icon"></i>خطا</h1>
+            <h5 class="text-center" style="color: red" dir="ltr">401 - Unauthorized</h5>
+            <h4 class="text-center">شما اجازه ی دسترسی به این صفحه را ندارید. اگر فکر میکنید، مشکلی وجود دارد، لطفا به ما گزارش کنید.</h4>
+        </div>
+    </div>
+{% endblock %}
+{% block bottom_scripts %}
+    <script>
+        var footer_height = $('footer').height() + 48;
+        var wrapper_height = $(window).height() - footer_height;
+        $('.table-wrapper').css('min-height', wrapper_height + 'px');
+    </script>
+{% endblock %}

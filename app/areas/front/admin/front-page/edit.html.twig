@@ -1,0 +1,115 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ item.title }}{% endblock %}
+{% block main %}
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+        {% if errors is defined %}
+            {% for error in errors %}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-danger" role="alert">
+                            <div class="container">
+                                {{ error }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        {% if get.submit_success == 'true' %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-success" role="alert">
+                        <div class="container">
+                            با موفقیت ویرایش شد.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        {% if ratio is defined %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="alert alert-warning" role="alert">
+                        <div class="container">
+                            نسبت ابعاد تصویر برای این بخش: {{ ratio }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <form method="POST" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-xs-12 col-sm-9">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="form-group form-group-no-border">
+                                <label for="page">صفحه: </label>
+                                <input type="text" name="page" value="{{ item.page }}" id="page" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group form-group-no-border">
+                                <label for="section">بخش: </label>
+                                <input type="text" name="section" value="{{ item.section }}" id="section" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="form-group form-group-no-border">
+                                <label for="title">عنوان: </label>
+                                <input type="text" name="title" value="{{ item.title }}" id="title" class="form-control">
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="form-group form-group-no-border">
+                                <label for="content">متن: </label>
+                                <textarea class="form-control" id="content" rows="10" name="content">{{ item.content }}</textarea>
+                            </div>
+                            <small class="text-white">تکمیل فیلد های صفحه، بخش و عنوان الزامی است، اما فیلد متن و نام فایل می تواند خالی باشد.</small><br>
+                            <small class="text-white">لطفا توجه داشته باشید نام فایل انتخاب شده خاص بوده و فایلی از قبل با این نام موجود نباشد.</small><br>
+                            <small class="text-white">در صورتی که فیلد نام فایل را خالی بگذارید، نام فایل آپلود شده ثبت می شود.</small><br>
+                            <small class="text-white">قبل از آپلود تصویر حتما به نسبت ابعاد خواسته شده توجه نمایید.</small><br><br>
+                            <input type="submit" name="submit" value="ثبت" class="btn btn-primary btn-round">
+                            <a href="{{ auto_site_base_url }}/admin/front-page/list/{{ item.page }}/{{ item.section }}" class="btn btn-primary btn-round">
+                                <i class="fa fa-arrow-right"></i>&nbsp;بازگشت
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-xs-12 col-sm-3">
+                    <div class="form-group form-group-no-border">
+                        <label for="filename">نام فایل: </label>
+                        <input type="text" name="filename" value="{{ item.filename }}" id="filename" class="form-control">
+                    </div>
+                    <br><br>
+                    <div class="fileinput-new img-raised">
+                        {% if item.page == 'portfolios' %}
+                            <img src="{{ generatePortfolioAbsoluteUrl(item.filename) }}" alt="placeholder" id="placeholder">
+                        {% else %}
+                            <img src="{{ generateImageAbsoluteUrl(item.filename) }}" alt="placeholder" id="placeholder">
+                        {% endif %}
+
+                    </div>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="10000000" />
+                    <br>
+                    <label for="fileupload" class="btn btn-primary btn-round center">
+                        <i class="fa fa-upload"></i>&nbsp;
+                        انتخاب فایل عکس
+                    </label>
+                    {% if item.filename %}
+                        <button type="submit" name="remove_thumbnail" class="btn btn-primary btn-round center"><i class="fa fa-trash"></i>&nbsp; حذف تصویر</button>
+                    {% endif %}
+                    <input type="file" name="thumbnail" id="fileupload" onchange="readURL(this);" style="display: none">
+                </div>
+            </div>
+        </form>
+
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $('body').addClass('admin');
+    </script>
+{% endblock %}

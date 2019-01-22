@@ -1,0 +1,98 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}مدیریت پست ها{% endblock %}
+{% block header %}
+    <link rel="stylesheet" href="{{ auto_site_base_url }}/assets/css/Tiles.css">
+{% endblock %}
+{% block main %}
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;">
+        <h2 class="text-white" style="display: inline">پست ها</h2>
+        <a href="{{ auto_site_base_url }}/admin/newpost" class="btn btn-primary btn-round float-left">پست جدید</a>
+        {% if get.delete == 'success' %}
+            <div class="row" style="margin-top: 10px;">
+                <div class="col-lg-12">
+                    <div class="alert alert-success" role="alert">
+                        <div class="container">
+                            پست با موفقیت حذف شد.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-lg-6 wow fadeInUp">
+                <div class="grid">
+                    <figure class="effect-zoe">
+                        <a href="{{ auto_site_base_url }}/admin/edit/{{ post.id }}">
+                            <img src="{{ generateThumbnailAbsoluteUrl(post.filename) }}" alt="{{ post.title }}">
+                        </a>
+                        <figcaption>
+                            <h2 class="float-right" style="margin-bottom: 20px">{{ post.title }}</h2>
+                            <p class="icon-links float-left">
+                                <a href="{{ auto_site_base_url }}/admin/edit/{{ post.id }}?delete=true" onclick="return confirm('آیا از حذف این پست اطمینان دارید؟')">
+                                    <i class="fa fa-trash-o" style="margin: 9px"></i>
+                                </a>&nbsp;
+                                <a href="{{ auto_site_base_url }}/admin/edit/{{ post.id }}"><i class="fa fa-edit" style="margin: 9px"></i></a>
+                                <a href="{{ auto_site_base_url }}/admin/edit/{{ post.id }}#comments"><i class="fa fa-comments" style="margin: 9px"></i></a>
+                            </p>
+                            <p class="description text-center">{{ toRelativeDate(post.created_at) }}</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <br>
+
+        {#Pagination#}
+        <div class="col-lg-12">
+            <div class="text-center">
+                <ul class="pagination d-inline-flex">
+                    {% set page = get.page is defined ? get.page : 1 %}
+                    {% if get.page is defined and get.page > 1 %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ generatePageUrl(server, get, 'first_page') }}" aria-label="Previous">
+                                <span aria-hidden="true"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="{{ generatePageUrl(server, get, 'previous_page') }}" aria-label="Previous">
+                                <span aria-hidden="true"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="{{ generatePageUrl(server, get, 'previous_page') }}">{{ convertNumbers(page - 1, true) }}</a>
+                        </li>
+                    {% endif %}
+                    <li class="page-item active">
+                        <a class="page-link" href="{{ generatePageUrl(server, get, null) }}">{{ convertNumbers(page, true) }}</a>
+                    </li>
+                    {% if posts|length >= 4 and page != total_pages %}
+                        <li class="page-item">
+                            <a class="page-link" href="{{ generatePageUrl(server, get, 'next_page') }}">{{ convertNumbers(page + 1, true) }}</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="{{ generatePageUrl(server, get, 'next_page') }}" aria-label="Next">
+                                <span aria-hidden="true"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="{{ auto_site_base_url }}/admin/blog/?page={{ total_pages }}" aria-label="Next">
+                                <span aria-hidden="true"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span>
+                            </a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+        <br>
+        {#End pagination#}
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $('body').addClass('admin');
+    </script>
+{% endblock %}

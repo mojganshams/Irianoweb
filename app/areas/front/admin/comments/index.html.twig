@@ -1,0 +1,95 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}دیدگاه ها{% endblock %}
+{% block main %}
+    <div class="container" style="margin-top: 100px; margin-bottom: 50px;" id="comments_page">
+        <div class="row">
+            <h2 class="text-white">دیدگاه ها</h2>
+            {% if get.delete == 'success' %}
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="alert alert-success" role="alert">
+                            <div class="container">
+                                دیدگاه با موفقیت حذف شد.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            {% for comment in comments %}
+                <a href="{{ auto_site_base_url }}/admin/comments/{{ comment.id }}" class="no-decoration animated fadeInRight" style="width: 100%" id="comment">
+                    <div class="comment col-lg-12" style="margin-bottom: 2em;">
+                        <div class="author">
+                            <h6>{{ comment.author }} نوشته: </h6>
+                        </div>
+                        <div class="comment-body">
+                            {{ comment.body }}
+                        </div>
+                        <div class="meta-info" style="font-size: 0.8em;">
+                            <i class="fa fa-calendar"></i>
+                            {{ toRelativeDate(comment.created_at) }}
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+            <br>
+            {#Pagination#}
+            <div class="col-lg-12">
+                <div class="text-center">
+                    <ul class="pagination d-inline-flex">
+                        {% set page = get.page is defined ? get.page : 1 %}
+                        {% if get.page is defined and get.page > 1 %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ generatePageUrl(server, get, 'first_page') }}" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="fa fa-angle-double-right" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="{{ generatePageUrl(server, get, 'previous_page') }}" aria-label="Previous">
+                                    <span aria-hidden="true"><i class="fa fa-angle-right" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="{{ generatePageUrl(server, get, 'previous_page') }}">{{ convertNumbers(page - 1, true) }}</a>
+                            </li>
+                        {% endif %}
+                        <li class="page-item active">
+                            <a class="page-link" href="{{ generatePageUrl(server, get, null) }}">{{ convertNumbers(page, true) }}</a>
+                        </li>
+                        {% if comments|length >= 4 and page != total_pages %}
+                            <li class="page-item">
+                                <a class="page-link" href="{{ generatePageUrl(server, get, 'next_page') }}">{{ convertNumbers(page + 1, true) }}</a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="{{ generatePageUrl(server, get, 'next_page') }}" aria-label="Next">
+                                    <span aria-hidden="true"><i class="fa fa-angle-left" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                            <li class="page-item">
+                                <a class="page-link" href="{{ auto_site_base_url }}/admin/comments/?page={{ total_pages }}" aria-label="Next">
+                                    <span aria-hidden="true"><i class="fa fa-angle-double-left" aria-hidden="true"></i></span>
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <br>
+            {#End pagination#}
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $('body').addClass('admin');
+        var time = 0;
+        $("#comment:nth-child(1)").css("animation-delay",time + "s");
+        time += 0.1;
+        $("#comment:nth-child(3)").css("animation-delay",time + "s");
+        time += 0.1;
+        $("#comment:nth-child(4)").css("animation-delay",time + "s");
+        time += 0.1;
+        $("#comment:nth-child(5)").css("animation-delay",time + "s");
+    </script>
+{% endblock %}

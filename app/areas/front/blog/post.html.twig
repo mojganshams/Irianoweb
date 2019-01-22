@@ -1,0 +1,110 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+{% block main %}
+    <div class="page-header page-header-small" filter-color="grey">
+        <div class="page-header-image" data-parallax="true" style="background-image: url('{{ generateThumbnailAbsoluteUrl(post.filename) }}');">
+        </div>
+        <div class="container">
+            <div class="content-center">
+                <h3 class="title header-title">{{ post.title }}</h3>
+            </div>
+        </div>
+    </div>
+    <br><br>
+    <div class="section-product-description section-white-gradient section-scaled" data-no-turbolink>
+        <div class="container rtl">
+            <div class="col-xs-12 col-sm-9 mx-auto wow fadeIn ltr">
+                <br>
+                {{ post.content|raw }}
+            </div>
+
+            <div id="comments">
+                <h3 class="text-center title">نظرات</h3>
+                {% if errors is not empty %}
+                    {% for error in errors %}
+                        <div class="col-xs-12 col-sm-9 mx-auto">
+                            <div class="alert alert-danger align-middle" role="alert">
+                                <div class="container">
+                                    <p class="text-center">{{ error }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+                {% if get.comment_submit == 'success' %}
+                    <div class="col-xs-12 col-sm-9 mx-auto">
+                        <div class="alert alert-success align-middle" role="alert">
+                            <div class="container">
+                                <p class="text-center">نظر شما با موفقیت ثبت شد.</p>
+                            </div>
+                        </div>
+                    </div>
+                {% elseif get.comment_submit == 'failure' %}
+                    <div class="col-xs-12 col-sm-9 mx-auto">
+                        <div class="alert alert-danger align-middle" role="alert">
+                            <div class="container">
+                                <p class="text-center">ثبت نظر با خطا مواجه شد.</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                {% for comment in comments %}
+                    <div class="comment col-xs-12 col-sm-9 mx-auto wow fadeIn" style="margin-bottom: 2em;">
+                        <div class="author">
+                            <h6>{{ comment.author }} نوشته: </h6>
+                        </div>
+                        <div class="comment-body">
+                            {{ comment.body }}
+                        </div>
+                        <div class="meta-info" style="font-size: 0.8em;">
+                            <i class="fa fa-calendar"></i>
+                            {{ toRelativeDate(comment.created_at) }}
+                        </div>
+                    </div>
+                {% endfor %}
+                {% if comments is empty %}
+                    <div class="col-xs-12 col-sm-9 mx-auto wow fadeIn">
+                        <div class="alert alert-warning align-middle" role="alert">
+                            <div class="container">
+                                <p class="text-center">نظری برای این پست ثبت نشده است.</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
+                <br><br>
+            </div>
+            <div class="col-xs-12 col-sm-9 mx-auto" style="padding: 0">
+                <div id="comment-form" class="wow fadeIn">
+                    {#<?php echo output_message($message); ?>#}
+                    <form method="post" class="form" enctype="multipart/form-data">
+                        <div class="header header-primary text-center">
+                            <h3 class="title title-up" style="color: white">ثبت نظر</h3>
+                        </div>
+                        <div class="content">
+                            <div class="input-group form-group-no-border">
+                                <input type="text" name="author" value="" class="form-control rtl"
+                                       placeholder="نام...">
+                            </div>
+                            <div class="input-group form-group-no-border">
+                                <input type="text" name="email" value="" class="form-control rtl"
+                                       placeholder="ایمیل...">
+                            </div>
+                            <div class="input-group form-group-no-border">
+                                <textarea name="body" cols="40" rows="8" class="form-control rtl" placeholder="متن..."></textarea>
+                            </div>
+                        </div>
+                        <input type="submit" name="submit" value="ثبت نظر" class="btn btn-primary btn-round center comment-submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block bottom_scripts %}
+    <script>
+        $("#blog").addClass("active");
+        $("body").addClass("post");
+    </script>
+{% endblock %}

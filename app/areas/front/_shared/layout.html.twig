@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+    {% block prehead %}{% endblock %}
+    <meta charset="utf-8" />
+    <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>{% block title %}{% endblock %} - {{ site_name_to_show }}</title>
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+    <meta name="description" content="گروه مهندسی ایریانو، طراحی و پیاده سازی انواع وب سایت و اپلیکیشن، طراحی تراکت، بروشور، پوستر و کارت ویزیت.">
+    <meta name="keywords" content="وبسایت,اپلیکیشن,گرافیک,طراحی,پیاده سازی,ایریانو وب,ایریانو,Iriano,Irianoweb,Irianoweb.ir">
+    <meta name="language" content="Persian">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+
+    <!-- Open Graph Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="گروه مهندسی ایریانو، طراحی و پیاده سازی انواع وب سایت و اپلیکیشن، طراحی تراکت، بروشور، پوستر و کارت ویزیت." />
+    <meta property="og:site_name" content="گروه مهندسی ایریانو" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta name="theme-color" content="#9f1e22" />
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ auto_site_base_url }}/assets/img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ auto_site_base_url }}/assets/img/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json?v=A0R62eN0Po">
+    <link rel="shortcut icon" href="{{ auto_site_base_url }}/assets/img/favicon.png">
+    <meta name="theme-color" content="#9f1e22" />
+    <link href="{{ auto_site_base_url }}/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{{ auto_site_base_url }}/assets/css/now-ui-kit.css" rel="stylesheet" type="text/css" />
+    <link href="{{ auto_site_base_url }}/assets/css/animate.css" rel="stylesheet" type="text/css" />
+    <link href="{{ auto_site_base_url }}/assets/css/Stylesheet.css" rel="stylesheet" type="text/css" />
+    <link href="{{ auto_site_base_url }}/assets/css/font-awesome.min.css" media="all" rel="stylesheet" type="text/css" />
+
+    {% block head %}{% endblock %}
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-toggleable-md bg-primary fixed-top navbar-transparent rtl" color-on-scroll="500">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="collapse navbar-collapse justify-content-end" id="navigation" data-nav-image="./assets/img/blurred-image-1.jpg">
+                    <ul class="navbar-nav" style="padding-right: 0;">
+                        <img src="{{ generateImageAbsoluteUrl('logotype64x64.png') }}" class="img-fluid logo center" id="logo-xs">
+                        {% if session.userid %}
+                            <li class="nav-item text-white" id="panel">
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="cursor: pointer">
+                                        <img src="{{ generateAvatarAbsoluteUrl(session.avatar) }}" class="rounded-circle" style="max-width: 40px;">
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <h6 class="dropdown-header text-right">{{ session.username }}</h6>
+                                        <a class="dropdown-item rtl" href="{{ auto_site_base_url }}/admin"><i class="fa fa-pie-chart align-middle"></i>&nbsp; پنل مدیریت</a>
+                                        <a class="dropdown-item" href="{{ auto_site_base_url }}/admin/users"><i class="fa fa-user-circle align-middle"></i>&nbsp;&nbsp;مدیریت حساب</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{ auto_site_base_url }}/admin?logout=true"><i class="fa fa-sign-out align-middle"></i>&nbsp;&nbsp;خروج</a>
+                                    </div>
+                                </div>
+                            </li>
+                        {% endif %}
+                        {% if session.userid %}
+                            <img src="{{ generateAvatarAbsoluteUrl(session.avatar) }}" class="rounded-circle center" style="max-width: 80px;" id="panel-xs">
+                            <li class="nav-item" id="panel-xs">
+                                <a class="nav-link text-right" href="{{ auto_site_base_url }}/admin">
+                                    <i class="fa fa-pie-chart align-middle"></i>
+                                    <p>پنل مدیریت</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="panel-xs">
+                                <a class="nav-link text-right" href="{{ auto_site_base_url }}/user/{{ session.userid }}">
+                                    <i class="fa fa-user-circle align-middle"></i>
+                                    <p>مدیریت حساب</p>
+                                </a>
+                            </li>
+                            <li class="nav-item" id="panel-xs">
+                                <a class="nav-link text-right" href="{{ auto_site_base_url }}/admin?logout=true">
+                                    <i class="fa fa-sign-out align-middle"></i>
+                                    <p>خروج</p>
+                                </a>
+                            </li>
+                            <div class="divider"></div>
+                        {% endif %}
+                        <li class="nav-item" id="home">
+                            <a class="nav-link text-right" href="{{ auto_site_base_url }}">
+                                <i class="fa fa-home"></i>
+                                <p>صفحه اصلی</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="blog">
+                            <a class="nav-link text-right" href="{{ auto_site_base_url }}/blog">
+                                <i class="fa fa-list"></i>
+                                <p>وبلاگ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="samples">
+                            <a class="nav-link text-right" href="{{ auto_site_base_url }}/portfolios">
+                                <i class="fa fa-folder"></i>
+                                <p>نمونه کار</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" id="about">
+                            <a class="nav-link text-right" href="{{ auto_site_base_url }}/about">
+                                <i class="fa fa-info-circle"></i>
+                                <p>درباره ما</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="navbar-translate">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-bar bar1"></span>
+                        <span class="navbar-toggler-bar bar2"></span>
+                        <span class="navbar-toggler-bar bar3"></span>
+                    </button>
+                    <a class="navbar-brand" href="../index.php">
+                        <img src="{{ generateImageAbsoluteUrl('logotype64x64.png') }}" class="img-fluid logo" id="logo">
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</nav>
+<!-- End Navbar -->
+{% block header %}{% endblock %}
+{% block main %}{% endblock %}
+<footer class="footer rtl" data-background-color="black">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6">
+                <nav id="footer-nav" class="center-xs">
+                    <ul>
+                        <li>
+                            <a href="{{ auto_site_base_url }}">صفحه اصلی</a>
+                        </li>
+                        <li>
+                            <a href="{{ auto_site_base_url }}/about">وبلاگ</a>
+                        </li>
+                        <li>
+                            <a href="{{ auto_site_base_url }}/portfolios">نمونه کار</a>
+                        </li>
+                        <li>
+                            <a href="{{ auto_site_base_url }}/about">درباره ما</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-xs-12 col-sm-6 text-center">
+                <div class="copyright">
+                    .
+                    Designed by
+
+                    <a href="http://www.yaztak.com" target="_blank">yaztak</a>
+                    ©
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>
+                    All rights reserved
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+<!--   Core JS Files   -->
+<script src="{{ auto_site_base_url }}/assets/js/core/jquery.3.2.1.min.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/core/tether.min.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+{#<script src="{{ auto_site_base_url }}/assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/plugins/moment.min.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/plugins/bootstrap-datepicker.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/plugins/bootstrap-datetimepicker.min.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/plugins/bootstrap-selectpicker.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/plugins/bootstrap-tagsinput.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/jasny-bootstrap.min.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/jquery.sharrre.js" type="text/javascript"></script>#}
+<script src="{{ auto_site_base_url }}/assets/js/core/now-ui-kit.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/wow.min.js" type="text/javascript"></script>
+<script src="{{ auto_site_base_url }}/assets/js/Scripts.js" type="text/javascript"></script>
+<script src="{{ auto_site_home_url }}/assets/js/tinymce/tinymce.min.js" type="text/javascript"></script>
+
+<script>
+    new WOW().init();
+</script>
+
+{% block bottom_scripts %}
+<script>
+    var width = $(window).width();
+    if(width > 768) {
+        $("#footer-nav").removeClass("center");
+    }
+</script>
+
+{% endblock %}
+
+</html>
